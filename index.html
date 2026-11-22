@@ -45,15 +45,15 @@
             
             <div class="video-wrapper">
                 <div class="video-frame">
-                    <div class="video-placeholder" id="video-placeholder">
-                        <span class="placeholder-text">[VIDEO_SIGNAL_LOST]</span>
-                        <span class="placeholder-sub">ERROR_153 // PLAYER_CONFIG_FAILED</span>
-                        <button class="terminal-btn primary-btn" id="retry-video">> RETRY_CONNECTION</button>
-                    </div>
-                    <video id="trailer-video" controls preload="metadata" class="video-element" style="display: none;">
-                        <source src="Between The Shards Trailer 2.mp4" type="video/mp4">
-                        Твой браузер не поддерживает видео.
-                    </video>
+                    <iframe
+                        id="trailer-video"
+                        src="https://www.youtube-nocookie.com/embed/qp9kavjiVhE?rel=0"
+                        title="Between The Shards Trailer"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
                     <div class="video-scanlines"></div>
                 </div>
                 <div class="video-glow"></div>
