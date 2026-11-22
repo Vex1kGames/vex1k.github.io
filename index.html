@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Between The Shards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- CRT Scanlines Overlay -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+    
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+    <main class="terminal-container">
+        <!-- Top Pink Accent Line -->
+        <div class="accent-line accent-top"></div>
+<!-- Header / Title -->
+        <header class="terminal-header">
+            <div class="cyber-corners corners-tl"></div>
+            <div class="cyber-corners corners-tr"></div>
+            <div class="cyber-corners corners-bl"></div>
+            <div class="cyber-corners corners-br"></div>
+            
+            <h1 class="game-title" data-text="BETWEEN THE SHARDS">
+                <span class="title-line">BETWEEN</span>
+                <span class="title-line">THE</span>
+                <span class="title-line">SHARDS</span>
+            </h1>
+            
+            <div class="subtitle">CRITICAL ERROR: PLAYER NOT FOUND</div>
+            <div class="version-tag">v0.1.0_ALPHA // BUILD_734</div>
+        </header>
+
+        <!-- Trailer Section -->
+        <section class="terminal-panel trailer-panel">
+            <div class="panel-header">
+                <span class="panel-label">// TRAILER_FEED</span>
+                <span class="panel-status online">● LIVE</span>
+            </div>
+            
+            <div class="video-wrapper">
+                <div class="video-frame">
+                    <div class="video-placeholder" id="video-placeholder">
+                        <span class="placeholder-text">[VIDEO_SIGNAL_LOST]</span>
+                        <span class="placeholder-sub">ERROR_153 // PLAYER_CONFIG_FAILED</span>
+                        <button class="terminal-btn primary-btn" id="retry-video">> RETRY_CONNECTION</button>
+                    </div>
+                    <video id="trailer-video" controls preload="metadata" class="video-element" style="display: none;">
+                        <source src="Between The Shards Trailer 2.mp4" type="video/mp4">
+                        Твой браузер не поддерживает видео.
+                    </video>
+                    <div class="video-scanlines"></div>
+                </div>
+                <div class="video-glow"></div>
+            </div>
+            
+            <div class="panel-footer">
+                <span class="footer-tag">[SYSTEM]</span>
+                <span class="footer-text" id="video-status">SIGNAL_UNSTABLE</span>
+            </div>
+        </section>
+
+        <!-- Social Links Section -->
+        <section class="terminal-panel social-panel">
+            <div class="panel-header">
+                <span class="panel-label">// EXTERNAL_COMMS</span>
+                <span class="panel-status online">● ACTIVE</span>
+            </div>
+            
+            <div class="social-grid">
+                <a href="https://discord.gg/AQNA8KkfB2" target="_blank" rel="noopener noreferrer" class="social-link discord-link" aria-label="Discord Server">
+                    <span class="social-icon">[DISCORD]</span>
+                    <span class="social-label">DISCORD_SERVER</span>
+                    <span class="social-arrow">►</span>
+                </a>
+                
+                <a href="https://www.youtube.com/@BetweenTheShards" target="_blank" rel="noopener noreferrer" class="social-link youtube-link" aria-label="YouTube Channel">
+                    <span class="social-icon">[YOUTUBE]</span>
+                    <span class="social-label">YOUTUBE_CHANNEL</span>
+                    <span class="social-arrow">►</span>
+                </a>
+                
+                <a href="https://t.me/BetweenTheShards" target="_blank" rel="noopener noreferrer" class="social-link telegram-link" aria-label="Telegram Channel">
+                    <span class="social-icon">[TELEGRAM]</span>
+                    <span class="social-label">TELEGRAM_FEED</span>
+                    <span class="social-arrow">►</span>
+                </a>
+            </div>
+            
+            <div class="panel-footer">
+                <span class="footer-tag">[LINK]</span>
+                <span class="footer-text">ESTABLISHING_SECURE_CHANNEL...</span>
+            </div>
+        </section>
+
+        <!-- Footer / System Info -->
+        <footer class="terminal-footer">
+            <div class="footer-grid">
+                <div class="sys-info">
+                    <span class="sys-label">SYSTEM_TIME</span>
+                    <span class="sys-value" id="system-time">--:--:--</span>
+                </div>
+                <div class="sys-info">
+                    <span class="sys-label">BUILD_ID</span>
+                    <span class="sys-value">BTS-734-ALPHA</span>
+                </div>
+                <div class="sys-info">
+                    <span class="sys-label">STATUS</span>
+                    <span class="sys-value online">OPERATIONAL</span>
+                </div>
+            </div>
+            <div class="copyright">© 2026 VEX1K // BETWEEN THE SHARDS // ALL_SIGNALS_RESERVED</div>
+        </footer>
+        
+        <!-- Bottom Pink Accent Line -->
+        <div class="accent-line accent-bottom"></div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Boot Sequence Overlay (initial load) -->
+    <div id="boot-overlay" class="boot-overlay" aria-hidden="true">
+        <div class="boot-content">
+            <div class="boot-lines" id="boot-lines"></div>
+            <div class="boot-cursor">_</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
