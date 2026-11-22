@@ -123,38 +123,25 @@
   }
 
   // =========================================================
-  // VIDEO PLAYER HANDLING (self-hosted)
+  // VIDEO PLAYER HANDLING (YouTube embed)
   // =========================================================
 
-  const videoPlaceholder = document.getElementById('video-placeholder');
   const trailerVideo = document.getElementById('trailer-video');
-  const retryVideoBtn = document.getElementById('retry-video');
   const videoStatus = document.getElementById('video-status');
+  const trailerEmbedUrl = 'https://www.youtube-nocookie.com/embed/qp9kavjiVhE?rel=0';
 
-  function showVideoPlayer() {
-    videoPlaceholder.classList.add('hidden');
-    trailerVideo.style.display = 'block';
-    videoStatus.textContent = 'SIGNAL_STABLE';
+  if (videoStatus) {
+    videoStatus.textContent = 'YOUTUBE_FEED // READY';
     videoStatus.style.color = 'var(--c-neon)';
   }
 
-  // Initial load - show video after short delay
-  setTimeout(showVideoPlayer, 800);
-
-  retryVideoBtn.addEventListener('click', () => {
-    videoStatus.textContent = 'RECONNECTING...';
-    videoStatus.style.color = 'var(--c-pink)';
-    trailerVideo.style.display = 'none';
-    videoPlaceholder.classList.remove('hidden');
-    // Reload video
-    trailerVideo.load();
-    setTimeout(showVideoPlayer, 1500);
-  });
-
-  // Optional: pause video when hidden (save resources)
+  // Pause playback when the page is hidden.
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden && !trailerVideo.paused) {
-      trailerVideo.pause();
+    if (document.hidden && trailerVideo) {
+      trailerVideo.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+        'https://www.youtube-nocookie.com'
+      );
     }
   });
 
